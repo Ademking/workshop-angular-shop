@@ -1,0 +1,19 @@
+<div class="col-md-3 col-sm-12 pt-3">
+    <div class="card">
+        <img class="card-img-top"
+            [src]="produit.image"
+            [alt]="produit.displayName">
+        <div class="card-body">
+            <h6 class="card-title"><a href="#" title="View Product">{{ produit.name | slice:0:30 }}...</a></h6>
+            <p class="card-text">{{ produit.displayName }}</p>
+            <div class="row">
+                <div class="col">
+                    <p class="btn btn-default btn-block">{{ produit.prices.price}}</p>
+                </div>
+                <div class="col">
+                    <a (click)="addToCart(produit)" class="btn btn-success btn-block text-white">Add to cart</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

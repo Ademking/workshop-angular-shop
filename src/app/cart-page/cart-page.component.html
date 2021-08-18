@@ -1,0 +1,75 @@
+<section class="jumbotron text-center">
+    <div class="container">
+        <h1 class="jumbotron-heading">E-COMMERCE CART</h1>
+    </div>
+</section>
+
+<div class="container mb-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="table-responsive">
+                <table *ngIf="cart.length > 0" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col"> </th>
+                            <th scope="col">Product</th>
+                            <th scope="col">Available</th>   
+                            <th scope="col" class="text-right">Price</th>
+                            <th> </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr *ngFor="let c of cart">
+                            <td><img style="width: 50px" [src]="c.image" /> </td>
+                            <td>{{ c.name }}</td>
+                            <td>In stock</td>
+                            <td class="text-right">{{ c.prices.rawPrice }} TND</td>
+                            <td class="text-right"><button (click)="removeItem(c)" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i>
+                                </button> </td>
+                        </tr>
+                       
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            
+                            <td></td>
+                            <td>Sub-Total</td>
+                            <td class="text-right">{{ subTotal() }} TND</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            
+                            <td></td>
+                            <td>Shipping</td>
+                            <td class="text-right">{{ shipping }} TND</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            
+                            <td></td>
+                            <td><strong>Total</strong></td>
+                            <td class="text-right"><strong>{{ total() }}</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="text-center" *ngIf="cart.length == 0">
+                    <h4>Your cart is empty</h4>
+                    <img src="https://i1.wp.com/www.huratips.com/wp-content/uploads/2019/04/empty-cart.png?fit=603%2C288&ssl=1" alt="" srcset="">
+                </div>
+            </div>
+        </div>
+        <div class="col mb-2" *ngIf="cart.length > 0">
+            <div class="row">
+                <div class="col-sm-12  col-md-6">
+                    <button class="btn btn-block btn-light">Continue Shopping</button>
+                </div>
+                <div class="col-sm-12 col-md-6 text-right">
+                    <button class="btn btn-lg btn-block btn-success text-uppercase"><i class="fa fa-shopping-cart"></i> Checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
